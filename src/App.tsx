@@ -3,6 +3,9 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import mapboxgl from "mapbox-gl";
 import "./App.css";
 
+// @ts-ignore
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
 
 function App() {
   const cities = [
@@ -131,5 +134,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
