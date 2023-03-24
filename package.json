@@ -19,7 +19,6 @@
     "styled-components": "^5.3.9",
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
-    "webpack-loader": "^0.0.1",
     "worker-loader": "^3.0.8"
   },
   "scripts": {
