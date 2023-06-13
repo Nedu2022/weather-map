@@ -8,6 +8,7 @@ import mapboxgl from 'mapbox-gl';
 // @ts-ignore
 mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
+//cities
 function App() {
   const cities = [
     "Singapore",
@@ -31,6 +32,8 @@ function App() {
     "Munich",
     "Glasgow",
   ];
+
+  // Mapbox styling
   const base = "https://api.mapbox.com/geocoding/v5/mapbox.places";
   const weathertoken = "a1ced4043f78b416c057b9d32d9a0645";
   mapboxgl.accessToken =
@@ -80,6 +83,8 @@ function App() {
                   const d = await (await fetch(url)).json();
                   const center = d.features[0].center;
                   map.flyTo({ center });
+
+                  //Weather Api
                   map.on("moveend", async () => {
                     const weatherurl = `https://api.openweathermap.org/data/2.5/forecast?lat=${center[1]}&lon=${center[0]}&cnt=16&appid=${weathertoken}&units=metric`;
                     const weatherJSON = await (await fetch(weatherurl)).json();
