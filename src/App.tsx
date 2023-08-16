@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "mapbox-gl/dist/mapbox-gl.css";
-// import mapboxgl from "mapbox-gl";
+
 import "./App.css";
 
 /* eslint-disable import/no-webpack-loader-syntax */
@@ -33,7 +33,7 @@ function App() {
     "Glasgow",
   ];
 
-  // Mapbox styling
+  // Mapbox styling and API
   const base = "https://api.mapbox.com/geocoding/v5/mapbox.places";
   const weathertoken = "a1ced4043f78b416c057b9d32d9a0645";
   mapboxgl.accessToken =
@@ -43,6 +43,7 @@ function App() {
   const [searched, setSearched] = useState(cities);
   let map: mapboxgl.Map;
 
+  //Fetching of Data From API
   useEffect(() => {
     if (mapRef.current) return;
     map = mapRef.current = new mapboxgl.Map({
